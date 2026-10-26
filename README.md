@@ -62,8 +62,8 @@ User (Tenant Account)
 
 ### 1. Clone & Install Dependencies
 ```bash
-git clone <repository-url>
-cd taskflow-portfolio
+git clone https://github.com/gimhanr9/taskflow-nextjs.git
+cd taskflow-nextjs
 npm install
 ```
 
