@@ -10,7 +10,7 @@ import {
 } from "../src/lib/validations";
 
 async function runTestSuite() {
-  console.log("🧪 Starting TaskFlow Automated Test & Verification Suite...\n");
+  console.log("🧪 Starting Kanvoro Automated Test & Verification Suite...\n");
 
   let passed = 0;
   let failed = 0;

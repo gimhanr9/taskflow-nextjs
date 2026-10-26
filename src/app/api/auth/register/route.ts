@@ -44,7 +44,7 @@ export async function POST(req: Request) {
     // Create sample welcome project and task for onboarding!
     const welcomeProject = await prisma.project.create({
       data: {
-        title: "Getting Started with TaskFlow",
+        title: "Getting Started with Kanvoro",
         description: "Welcome! Here is your first workspace to explore tasks, progress tracking, and project planning.",
         status: "ACTIVE",
         priority: "MEDIUM",
@@ -79,7 +79,7 @@ export async function POST(req: Request) {
     await prisma.activityLog.create({
       data: {
         action: "ACCOUNT_CREATED",
-        details: "Created TaskFlow account",
+        details: "Created Kanvoro account",
         entityType: "ACCOUNT",
         userId: newUser.id,
       },

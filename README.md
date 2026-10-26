@@ -1,4 +1,4 @@
-# TaskFlow — Production Full-Stack SaaS Project Management Platform
+# Kanvoro — Production Full-Stack SaaS Project Management Platform
 
 A high-velocity, production-grade project management application built with **Next.js (App Router)**, **TypeScript**, **PostgreSQL**, **Prisma ORM**, **Tailwind CSS**, and **Jose JWT Session Security**.
 
@@ -105,14 +105,14 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ## 🔑 Demo Account Credentials
 
 Portfolio reviewers can click **"Explore Live Demo"** on the landing page or enter:
-- **Email**: `demo@taskflow.dev`
+- **Email**: `demo@kanvoro.dev`
 - **Password**: `TaskFlow123!`
 
 ---
 
 ## 🚢 Deployment Guide (Vercel & Managed PostgreSQL)
 
-TaskFlow is optimized for zero-config deployment to [Vercel](https://vercel.com) alongside any managed PostgreSQL provider ([Neon](https://neon.tech), [Supabase](https://supabase.com), or [Railway](https://railway.app)).
+Kanvoro is optimized for zero-config deployment to [Vercel](https://vercel.com) alongside any managed PostgreSQL provider ([Neon](https://neon.tech), [Supabase](https://supabase.com), or [Railway](https://railway.app)).
 
 ### Steps:
 1. **Provision Database**: Create a PostgreSQL database on Neon or Supabase and copy the connection string.

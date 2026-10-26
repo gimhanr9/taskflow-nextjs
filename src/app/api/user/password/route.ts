@@ -11,7 +11,7 @@ export async function POST(req: Request) {
     }
 
     // Safety for demo account
-    if (user.email === "demo@taskflow.dev") {
+    if (user.email === "demo@kanvoro.dev" || user.email === "demo@taskflow.dev") {
       return NextResponse.json(
         { error: "Demo account password cannot be modified to preserve access for other reviewers." },
         { status: 403 }

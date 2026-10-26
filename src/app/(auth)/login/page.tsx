@@ -2,9 +2,10 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { Layers, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
+import { KanvoroLogoMark } from "@/components/common/KanvoroLogoMark";
 
 export default function LoginPage() {
   const [email, setEmail] = React.useState("");
@@ -60,10 +61,10 @@ export default function LoginPage() {
     <div className="min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8 bg-slate-50">
       <div className="sm:mx-auto sm:w-full sm:max-w-md text-center">
         <Link href="/" className="inline-flex items-center gap-2.5 mb-4 group">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-600 text-white shadow-md shadow-indigo-600/20 group-hover:bg-indigo-700 transition-colors">
-            <Layers className="h-5 w-5" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-violet-600 via-indigo-600 to-indigo-500 text-white shadow-md shadow-indigo-600/20 group-hover:from-violet-700 group-hover:to-indigo-700 transition-all">
+            <KanvoroLogoMark className="h-5 w-5" />
           </div>
-          <span className="font-bold text-slate-900 text-2xl tracking-tight">TaskFlow</span>
+          <span className="font-bold text-slate-900 text-2xl tracking-tight">Kanvoro</span>
         </Link>
         <h2 className="text-xl font-bold text-slate-900">Sign in to your account</h2>
         <p className="mt-1 text-xs text-slate-500">
@@ -86,7 +87,7 @@ export default function LoginPage() {
               <span>One-Click Demo Sign In</span>
             </Button>
             <p className="text-[11px] text-center text-slate-400 mt-2">
-              Instantly signs in as <span className="font-semibold text-slate-600">demo@taskflow.dev</span> with sample projects.
+              Instantly signs in as <span className="font-semibold text-slate-600">demo@kanvoro.dev</span> with sample projects.
             </p>
           </div>
 
