@@ -13,10 +13,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "TaskFlow — Modern Project & Task Management",
+  title: "Kanvoro — Modern Project & Task Management",
   description: "A production-grade SaaS application for agile sprint tracking, project roadmaps, Kanban workflows, and team velocity analytics.",
-  keywords: ["project management", "kanban", "saas", "taskflow", "productivity", "nextjs"],
-  authors: [{ name: "TaskFlow Engineering" }],
+  keywords: ["project management", "kanban", "saas", "kanvoro", "productivity", "nextjs"],
+  authors: [{ name: "Kanvoro Engineering" }],
 };
 
 export default function RootLayout({

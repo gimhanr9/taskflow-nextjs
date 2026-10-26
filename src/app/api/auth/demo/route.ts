@@ -4,9 +4,21 @@ import { createSession, hashPassword } from "@/lib/auth";
 
 export async function POST() {
   try {
-    let demoUser = await prisma.user.findUnique({
-      where: { email: "demo@taskflow.dev" },
+    let demoUser = await prisma.user.findFirst({
+      where: {
+        OR: [
+          { email: "demo@kanvoro.dev" },
+          { email: "demo@taskflow.dev" },
+        ],
+      },
     });
+
+    if (demoUser && demoUser.email === "demo@taskflow.dev") {
+      demoUser = await prisma.user.update({
+        where: { id: demoUser.id },
+        data: { email: "demo@kanvoro.dev" },
+      });
+    }
 
     if (!demoUser) {
       // Auto-provision demo user
@@ -14,7 +26,7 @@ export async function POST() {
       demoUser = await prisma.user.create({
         data: {
           name: "Alex Chen",
-          email: "demo@taskflow.dev",
+          email: "demo@kanvoro.dev",
           password: hashedPassword,
           role: "ADMIN",
           jobTitle: "Senior Full-Stack Architect",
@@ -23,6 +35,16 @@ export async function POST() {
         },
       });
     }
+
+    // Auto-update any previously created TaskFlow projects/logs to Kanvoro
+    await prisma.project.updateMany({
+      where: { title: "TaskFlow SaaS Platform" },
+      data: { title: "Kanvoro SaaS Platform" },
+    });
+    await prisma.activityLog.updateMany({
+      where: { details: "Created new project 'TaskFlow SaaS Platform'" },
+      data: { details: "Created new project 'Kanvoro SaaS Platform'" },
+    });
 
     // Check if demo user has projects; if not, seed realistic portfolio demo projects & tasks
     const projectCount = await prisma.project.count({
@@ -37,7 +59,7 @@ export async function POST() {
       // Project 1
       const p1 = await prisma.project.create({
         data: {
-          title: "TaskFlow SaaS Platform",
+          title: "Kanvoro SaaS Platform",
           description: "Production-ready project management application with interactive Kanban boards, analytics, and tenant security.",
           status: "ACTIVE",
           priority: "HIGH",
@@ -292,7 +314,7 @@ export async function POST() {
           },
           {
             action: "PROJECT_CREATED",
-            details: "Created new project 'TaskFlow SaaS Platform'",
+            details: "Created new project 'Kanvoro SaaS Platform'",
             entityType: "PROJECT",
             userId: demoUser.id,
             projectId: p1.id,

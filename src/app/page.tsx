@@ -4,7 +4,6 @@ import * as React from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
-  Layers,
   BarChart3,
   ArrowRight,
   ShieldCheck,
@@ -13,6 +12,7 @@ import {
   Check,
 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { KanvoroLogoMark } from "@/components/common/KanvoroLogoMark";
 
 export default function LandingPage() {
   const router = useRouter();
@@ -40,10 +40,10 @@ export default function LandingPage() {
       <header className="sticky top-0 z-40 w-full border-b border-slate-200/80 bg-white/90 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-600 text-white shadow-md shadow-indigo-600/20 group-hover:bg-indigo-700 transition-colors">
-              <Layers className="h-5 w-5" />
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-violet-600 via-indigo-600 to-indigo-500 text-white shadow-md shadow-indigo-600/20 group-hover:from-violet-700 group-hover:to-indigo-700 transition-all">
+              <KanvoroLogoMark className="h-5 w-5" />
             </div>
-            <span className="font-bold text-slate-900 text-xl tracking-tight">TaskFlow</span>
+            <span className="font-bold text-slate-900 text-xl tracking-tight">Kanvoro</span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
@@ -90,7 +90,7 @@ export default function LandingPage() {
           </h1>
 
           <p className="mt-6 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            TaskFlow combines intuitive Kanban drag-and-drop workflows, real-time completion velocity metrics, and robust PostgreSQL tenancy in a clean, distraction-free interface.
+            Kanvoro combines intuitive Kanban drag-and-drop workflows, real-time completion velocity metrics, and robust PostgreSQL tenancy in a clean, distraction-free interface.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -133,7 +133,7 @@ export default function LandingPage() {
                   <span className="h-3 w-3 rounded-full bg-rose-400" />
                   <span className="h-3 w-3 rounded-full bg-amber-400" />
                   <span className="h-3 w-3 rounded-full bg-emerald-400" />
-                  <span className="ml-3 text-xs font-bold text-slate-700">TaskFlow — Active Workspace</span>
+                  <span className="ml-3 text-xs font-bold text-slate-700">Kanvoro — Active Workspace</span>
                 </div>
                 <div className="flex items-center gap-2 text-xs text-slate-400">
                   <span className="h-2 w-2 rounded-full bg-emerald-500" />
@@ -326,10 +326,10 @@ export default function LandingPage() {
       <footer className="mt-auto bg-slate-900 text-slate-400 py-12 text-xs">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-indigo-600 text-white">
-              <Layers className="h-3.5 w-3.5" />
+            <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-gradient-to-tr from-violet-600 to-indigo-600 text-white">
+              <KanvoroLogoMark className="h-3.5 w-3.5" />
             </div>
-            <span className="font-bold text-white text-sm">TaskFlow</span>
+            <span className="font-bold text-white text-sm">Kanvoro</span>
             <span className="text-slate-500">| Portfolio SaaS Application</span>
           </div>
 

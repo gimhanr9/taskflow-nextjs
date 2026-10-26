@@ -23,7 +23,7 @@ async function main() {
   const demoUser = await prisma.user.create({
     data: {
       name: "Alex Chen",
-      email: "demo@taskflow.dev",
+      email: "demo@kanvoro.dev",
       password: demoHashedPassword,
       role: "ADMIN",
       jobTitle: "Senior Full-Stack Architect",
@@ -34,10 +34,10 @@ async function main() {
 
   console.log(`👤 Created Demo User: ${demoUser.email}`);
 
-  // Project 1: TaskFlow Core
+  // Project 1: Kanvoro Core
   const project1 = await prisma.project.create({
     data: {
-      title: "TaskFlow SaaS Platform",
+      title: "Kanvoro SaaS Platform",
       description: "Production-ready project management application with interactive Kanban boards, analytics, and tenant security.",
       status: "ACTIVE",
       priority: "HIGH",
@@ -292,7 +292,7 @@ async function main() {
       },
       {
         action: "PROJECT_CREATED",
-        details: "Created new project 'TaskFlow SaaS Platform'",
+        details: "Created new project 'Kanvoro SaaS Platform'",
         entityType: "PROJECT",
         userId: demoUser.id,
         projectId: project1.id,

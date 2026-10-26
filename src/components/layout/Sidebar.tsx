@@ -10,12 +10,12 @@ import {
   BarChart3,
   Settings,
   LogOut,
-  Layers,
   X,
   ChevronRight,
   ShieldCheck,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { KanvoroLogoMark } from "@/components/common/KanvoroLogoMark";
 
 interface SidebarProps {
   user: {
@@ -52,7 +52,7 @@ export function Sidebar({ user, isOpen, onClose }: SidebarProps) {
     }
   };
 
-  const isDemo = user.email === "demo@taskflow.dev";
+  const isDemo = user.email === "demo@kanvoro.dev" || user.email === "demo@taskflow.dev";
 
   return (
     <>
@@ -75,12 +75,12 @@ export function Sidebar({ user, isOpen, onClose }: SidebarProps) {
         {/* Brand Header */}
         <div className="flex h-16 items-center justify-between px-6 border-b border-slate-100">
           <Link href="/dashboard" className="flex items-center gap-3 group">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-600 text-white shadow-md shadow-indigo-600/20 group-hover:bg-indigo-700 transition-colors">
-              <Layers className="h-5 w-5" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-violet-600 via-indigo-600 to-indigo-500 text-white shadow-md shadow-indigo-600/20 group-hover:from-violet-700 group-hover:to-indigo-700 transition-all">
+              <KanvoroLogoMark className="h-5 w-5" />
             </div>
             <div>
               <div className="flex items-center gap-1.5">
-                <span className="font-bold text-slate-900 text-lg tracking-tight">TaskFlow</span>
+                <span className="font-bold text-slate-900 text-lg tracking-tight">Kanvoro</span>
                 <span className="rounded-md bg-indigo-50 px-1.5 py-0.5 text-[10px] font-semibold text-indigo-700 uppercase">
                   SaaS
                 </span>

@@ -38,7 +38,7 @@ export function SettingsView({ user }: SettingsViewProps) {
   const [passwordSuccess, setPasswordSuccess] = React.useState(false);
   const [passwordError, setPasswordError] = React.useState<string | null>(null);
 
-  const isDemo = user.email === "demo@taskflow.dev";
+  const isDemo = user.email === "demo@kanvoro.dev" || user.email === "demo@taskflow.dev";
 
   const handleProfileSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -245,7 +245,7 @@ export function SettingsView({ user }: SettingsViewProps) {
               <div>
                 <p className="font-bold">Portfolio Demo Account Protected</p>
                 <p className="mt-1 text-amber-800">
-                  Password changes are disabled for the pre-configured demo account (<code className="bg-amber-100 px-1 py-0.5 rounded font-mono">demo@taskflow.dev</code>) so portfolio visitors and freelance clients can consistently explore the live application.
+                  Password changes are disabled for the pre-configured demo account (<code className="bg-amber-100 px-1 py-0.5 rounded font-mono">demo@kanvoro.dev</code>) so portfolio visitors and freelance clients can consistently explore the live application.
                 </p>
               </div>
             </div>
@@ -312,7 +312,7 @@ export function SettingsView({ user }: SettingsViewProps) {
           <div>
             <h3 className="text-base font-bold text-slate-900">Architecture & Tenancy Design</h3>
             <p className="text-xs text-slate-500 mt-0.5">
-              Technical overview of how TaskFlow enforces data isolation, secure authentication, and relational persistence.
+              Technical overview of how Kanvoro enforces data isolation, secure authentication, and relational persistence.
             </p>
           </div>
 
