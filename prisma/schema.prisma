@@ -1,0 +1,89 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         String        @id @default(cuid())
+  name       String
+  email      String        @unique
+  password   String
+  role       String        @default("MEMBER")
+  jobTitle   String?       @default("Product Builder")
+  bio        String?
+  avatarUrl  String?
+  createdAt  DateTime      @default(now())
+  updatedAt  DateTime      @updatedAt
+
+  projects   Project[]
+  tasks      Task[]
+  activities ActivityLog[]
+
+  @@map("users")
+}
+
+model Project {
+  id          String        @id @default(cuid())
+  title       String
+  description String?
+  status      String        @default("ACTIVE") // PLANNING, ACTIVE, COMPLETED, ON_HOLD
+  priority    String        @default("MEDIUM") // LOW, MEDIUM, HIGH, URGENT
+  color       String        @default("#4f46e5") // Indigo accent
+  startDate   DateTime?
+  dueDate     DateTime?
+  userId      String
+  user        User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tasks       Task[]
+  activities  ActivityLog[]
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@index([userId])
+  @@index([userId, status])
+  @@index([userId, priority])
+  @@map("projects")
+}
+
+model Task {
+  id          String        @id @default(cuid())
+  title       String
+  description String?
+  status      String        @default("TODO") // TODO, IN_PROGRESS, DONE
+  priority    String        @default("MEDIUM") // LOW, MEDIUM, HIGH, URGENT
+  order       Int           @default(0)
+  dueDate     DateTime?
+  completedAt DateTime?
+  projectId   String
+  project     Project       @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  userId      String
+  user        User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@index([userId])
+  @@index([projectId])
+  @@index([userId, status])
+  @@index([projectId, status])
+  @@map("tasks")
+}
+
+model ActivityLog {
+  id         String    @id @default(cuid())
+  action     String    // e.g. "PROJECT_CREATED", "TASK_STATUS_CHANGED", "TASK_COMPLETED"
+  details    String
+  entityType String    // "PROJECT", "TASK", "ACCOUNT"
+  entityId   String?
+  userId     String
+  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  projectId  String?
+  project    Project?  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  createdAt  DateTime  @default(now())
+
+  @@index([userId])
+  @@index([userId, createdAt])
+  @@map("activity_logs")
+}
